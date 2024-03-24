@@ -1,0 +1,56 @@
+version: '3'
+
+services:
+# all the services can be looked at as a single container
+  source_postgres:
+  # Pull the latest postgres image from dockerHub
+    image: postgres:12
+    ports:
+      - "5433:5432"
+    # ^ 5433 is the local port and 5432 is the docker port.
+    # these two are linked
+    networks:
+      - Network_elt
+    environment:
+      POSTGRES_DB: source_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secret
+    volumes:
+    # volumes help us presist the data i.e. keep them on file rather then just on container
+    # ./local_folder:docker_folder
+      - ./source_db_init/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  destination_postgres:
+    image: postgres:12
+    ports:
+      - "5434:5432"
+    networks:
+      - Network_elt
+    environment:
+      POSTGRES_DB: destination_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secret
+    # for testing purpose we want to rul the script everysingle time
+    # to make sure its downloading data correctly, so no volumes
+
+  elt_script:
+    build:
+      context: ./elt
+      #context: what file are we building the script from
+      dockerfile: Dockerfile
+      #context is root (./) in refernce to the dockerfile
+    command: ["python", "elt_script.py"]
+    # command: lets the system know which system file is going to use.
+    # File needs the .py or else " python: can't open file 'elt_script': [Errno 2] No such file or directory"
+    networks:
+      - Network_elt
+    depends_on:
+    # depends_on lets system know that this container has dependencies that initialize/build
+    # this is why we are using a docker container for the elt script to control 
+    # the priority order of all containers
+      - source_postgres
+      - destination_postgres
+
+networks:
+  Network_elt:
+    driver: bridge

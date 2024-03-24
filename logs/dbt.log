@@ -1,0 +1,24 @@
+[0m07:47:47.434302 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000257BC808BC0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000257BC808D70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000257BC808C20>]}
+
+
+============================== 07:47:47.470722 | 8a47dc07-2eca-49fe-92d2-e9b23fa8f086 ==============================
+[0m07:47:47.470722 [info ] [MainThread]: Running with dbt=1.7.10
+[0m07:47:47.470722 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\Mahum\\.dbt', 'fail_fast': 'False', 'version_check': 'True', 'log_path': 'logs', 'warn_error': 'None', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt init', 'log_format': 'default', 'introspect': 'True', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m09:11:40.773681 [debug] [MainThread]: Starter project path: C:\Users\Mahum\Desktop\Projects\DE_YT\dbt_env\Lib\site-packages\dbt\include\starter_project
+[0m09:11:40.823432 [info ] [MainThread]: 
+Your new dbt project "ELT_postgres" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m09:11:40.839708 [info ] [MainThread]: Setting up your profile.
