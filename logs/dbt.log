@@ -26,3 +26,58 @@ Happy modeling!
 [0m10:22:12.070198 [debug] [MainThread]: Command `dbt init` succeeded at 10:22:12.065685 after 76.66 seconds
 [0m10:22:12.071633 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002938F6F5940>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002938F643950>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002938F54E330>]}
 [0m10:22:12.073276 [debug] [MainThread]: Flushing usage events
+[0m14:09:42.905335 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021ADB101BE0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021ADB101970>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021ADB1018E0>]}
+
+
+============================== 14:09:42.930508 | d42f9a27-9b5b-40f5-8025-725e20646d28 ==============================
+[0m14:09:42.930508 [info ] [MainThread]: Running with dbt=1.7.10
+[0m14:09:42.930508 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\Mahum\\.dbt', 'debug': 'False', 'version_check': 'True', 'log_path': 'logs', 'fail_fast': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'invocation_command': 'dbt init', 'static_parser': 'True', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m14:09:55.469978 [error] [MainThread]: Encountered an error:
+
+[0m14:09:55.569748 [error] [MainThread]: Traceback (most recent call last):
+  File "C:\Users\Mahum\Desktop\Projects\DE_YT\dbt_env\Lib\site-packages\dbt\cli\requires.py", line 91, in wrapper
+    result, success = func(*args, **kwargs)
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mahum\Desktop\Projects\DE_YT\dbt_env\Lib\site-packages\dbt\cli\requires.py", line 76, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mahum\Desktop\Projects\DE_YT\dbt_env\Lib\site-packages\dbt\cli\main.py", line 515, in init
+    results = task.run()
+              ^^^^^^^^^^
+  File "C:\Users\Mahum\Desktop\Projects\DE_YT\dbt_env\Lib\site-packages\dbt\task\init.py", line 322, in run
+    project_name = self.get_valid_project_name()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mahum\Desktop\Projects\DE_YT\dbt_env\Lib\site-packages\dbt\task\init.py", line 276, in get_valid_project_name
+    name = click.prompt("Enter a name for your project (letters, digits, underscore)")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mahum\Desktop\Projects\DE_YT\dbt_env\Lib\site-packages\click\termui.py", line 164, in prompt
+    value = prompt_func(prompt)
+            ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mahum\Desktop\Projects\DE_YT\dbt_env\Lib\site-packages\click\termui.py", line 147, in prompt_func
+    raise Abort() from None
+click.exceptions.Abort
+
+[0m14:09:55.578763 [debug] [MainThread]: Command `dbt init` failed at 14:09:55.577022 after 12.98 seconds
+[0m14:09:55.580708 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021ADB128590>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021ADAF427E0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021ADAF9E870>]}
+[0m14:09:55.581246 [debug] [MainThread]: Flushing usage events
+[0m14:32:36.047615 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000207D992A030>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000207D992AC90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000207D992B500>]}
+
+
+============================== 14:32:36.047615 | 5e16c058-ad9c-4930-9e55-e1faa5131e56 ==============================
+[0m14:32:36.047615 [info ] [MainThread]: Running with dbt=1.7.10
+[0m14:32:36.062125 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'debug': 'False', 'log_path': 'logs', 'fail_fast': 'False', 'profiles_dir': 'C:\\Users\\Mahum\\.dbt', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'log_format': 'default', 'invocation_command': 'dbt init', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m14:33:03.684697 [info ] [MainThread]: A project called ELT_project already exists here.
+[0m14:33:03.684697 [debug] [MainThread]: Command `dbt init` succeeded at 14:33:03.684697 after 27.95 seconds
+[0m14:33:03.684697 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000207D97C3E90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000207D97C3FE0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000207D980E150>]}
+[0m14:33:03.684697 [debug] [MainThread]: Flushing usage events
+[0m14:33:14.934636 [debug] [MainThread]: Error sending anonymous usage statistics. Disabling tracking for this execution. If you wish to permanently disable tracking, see: https://docs.getdbt.com/reference/global-configs#send-anonymous-usage-stats.
+[0m14:35:18.729552 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000029046515730>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000029046516DB0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000029046517CB0>]}
+
+
+============================== 14:35:18.730563 | 05b7e38d-b35a-4fa3-8c0e-7a25b320fe54 ==============================
+[0m14:35:18.730563 [info ] [MainThread]: Running with dbt=1.7.10
+[0m14:35:18.730563 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'version_check': 'True', 'log_path': 'logs', 'profiles_dir': 'C:\\Users\\Mahum\\.dbt', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'log_format': 'default', 'static_parser': 'True', 'target_path': 'None', 'invocation_command': 'dbt init --profile ELT_project', 'send_anonymous_usage_stats': 'True'}
+[0m14:35:28.359098 [info ] [MainThread]: A project called ELT_project already exists here.
+[0m14:35:28.359628 [debug] [MainThread]: Command `dbt init` succeeded at 14:35:28.359628 after 9.91 seconds
+[0m14:35:28.359628 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000290463ADA30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000029046422810>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000029046423FE0>]}
+[0m14:35:28.359628 [debug] [MainThread]: Flushing usage events

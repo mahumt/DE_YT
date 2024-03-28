@@ -9,11 +9,10 @@
 ## Introduction
 This exercise takes data from one source folder and moves it across to a destination folder. <br>
 
-### Tools and thier uses
-- A `CRON` job to let it <br>
-- `Airflow` for <br>
-- `Airbyte` for <br>
-- `dbt` (data build tool) on top of the destination data for transformation <br> 
+### Tools and their uses
+- A `CRON` job: A `.sh` file to run the pipeline at a specific time. This is in essence a less detailed version of what airflow will do. But good to learn none-the-less since companies do use these.  <br>
+- `Airflow` for scheduling of the pipeline. Using DAGs (Directed Acyclic Graphics). This will help us run the pipeline on a schedule automatically.  <br>
+- `dbt` (data build tool) on top of the destination data for transformations to the data. Focusing on models and macros, but dbt can also run tests on the transformation for a robust pipeline <br> 
 
 ## How it works/Repository Structure
 1. docker-compose.yaml: This file contains the configuration for Docker Compose, which is used to orchestrate multiple Docker containers. It defines three services: <br>
@@ -55,7 +54,7 @@ schema (default schema that dbt will build objects in): public
 threads (1 or more) [1]: 1
 ``` 
 iv. In the dbt's project folder, open the file `dbt_project.yml` and change `+materialized` to `table` from `view` <br>
-v. In the models folder, add sources/references `actors.sql`, `film_actors.sql`, `films.sql` and then define the schema from `schema.yml`
+v. In the models folder, add sources/references `actors.sql`, `film_actors.sql`, `films.sql` and then define the schema from `schema.yml`. The schema file is useful in testing. When dbt runs the test it will use this file as reference and if the schema does not match throw errors
 
 ## Getting Started
 Either clone the respository and start `docker-compose up` <br>

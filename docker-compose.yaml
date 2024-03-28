@@ -32,12 +32,15 @@ services:
       POSTGRES_PASSWORD: secret
     # for testing purpose we want to rul the script everysingle time
     # to make sure its downloading data correctly, so no volumes
+    # volumes: # better to not have presistent vol. so Ex runs each time.
+    #   - destination_db_data:/var/lib/postgresql/data
+              # ^ but usually in real life you will have a presistent volume mounted
 
   elt_script:
     build:
       context: ./elt
       #context: what file are we building the script from
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile # if you named it something else, specify here
       #context is root (./) in refernce to the dockerfile
     command: ["python", "elt_script.py"]
     # command: lets the system know which system file is going to use.
@@ -56,9 +59,9 @@ services:
     command:
       [
         "run",
-        "--profiles-dir",
+        "--profiles-dir", #this is pointing to the profile directory
         "/root",
-        "--project-dir",
+        "--project-dir", # pointing to project directory
         "/dbt"
       ]
     networks:
@@ -75,5 +78,3 @@ services:
 networks:
   Network_elt:
     driver: bridge
-
-    C:\Users\Mahum\Desktop\Projects\DE_YT\dbt_env
