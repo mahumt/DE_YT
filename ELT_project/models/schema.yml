@@ -39,9 +39,10 @@ models:
         tests:
           - unique
           - not_null
-      - name: name
+      - name: actor_name
         description: "First name of the actor."
         tests:
+          - None
 
 
   - name: film_actors

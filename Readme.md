@@ -53,7 +53,7 @@ dbname (default database that dbt will build objects in): destination_db
 schema (default schema that dbt will build objects in): public
 threads (1 or more) [1]: 1
 ``` 
-iv. In the dbt's project folder, open the file `dbt_project.yml` and change `+materialized` to `table` from `view` <br>
+iv. In the dbt's project folder, open the file `dbt_project.yml` and change `+materialized` to `table` from `view`. Materialization is a variable that controls how dbt creates a model, wfor this purpose we want to use our tables. <br>
 v. In the models folder, add sources/references `actors.sql`, `film_actors.sql`, `films.sql` and then define the schema from `schema.yml`. The schema file is useful in testing. When dbt runs the test it will use this file as reference and if the schema does not match throw errors
 
 ## Getting Started
@@ -66,6 +66,15 @@ OR <br>
 <br>
 Once all containers are up and running, the ELT process will start automatically. <br>
 After the ELT process completes, you can access the source and destination PostgreSQL databases on ports 5433 and 5434, respectively. <br>
+
+
+## Screenshots of the working exercise
+![Screenshot of destination and source folder/postgres being created in powershell. ](Screenshot 1.png)
+
+## Limitations of this exercise
+- This exercise is very basic. Most real life jobs will not require moving data from one folder to another on-prem.
+- This exercise uses a varitation of batch system. But in most cases data will be too big to for this to work efficently.
+    - The way to improve upon this exercise is to add cloud services and more open source tools a batch processing using "Spark" and Stream processings using "Kafka"
 
 ## Source
     https://www.youtube.com/watch?v=PHsC_t0j1dU&list=WL&index=14&ab_channel=freeCodeCamp.org
