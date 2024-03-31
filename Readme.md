@@ -10,8 +10,10 @@
 - [Source](#source)
 
 ## Introduction
-This exercise takes data from one source folder and moves it across to a destination folder. <br>
+This exercise migrates data from one source folder and moves it across to a destination folder, using open source tools. The eercise makes use of docker to setup a container and run airflow, postgres and dbt for an automated data pipeline <br>
+![Architecture](Screenshots/architecture.drawio.png)
 
+<br>
 ### Tools and their uses
 - A `CRON` job: A `.sh` file to run the pipeline at a specific time. This is in essence a less detailed version of what airflow will do. But good to learn none-the-less since companies do use these.  <br>
 - `Airflow` for scheduling of the pipeline. Using DAGs (Directed Acyclic Graphics). This will help us run the pipeline on a schedule automatically.  <br>
@@ -92,28 +94,28 @@ docker exec -it de_yt-destination_postgres-1 psql -U postgres
 \dt
 ```
 1 - Screenshot of postgress tables created script running successfully <br>
-![Screenshot of postgress destination tables](./postgres_db.png)
+![Screenshot of postgress destination tables](./Screenshots/postgres_db.png)
 
 2 - Screenshot of elt script running successfully <br>
-![Screenshot of elt script running successfully](./Screenshot_2.png)
+![Screenshot of elt script running successfully](./Screenshots/Screenshot_2.png)
 
 3 - Screenshot of dbt transformations <br>
-![Screenshot of dbt transformations](./Screenshot_3.png)
+![Screenshot of dbt transformations](./Screenshots/Screenshot_3.png)
 
 4 - Screenshot of portgres tables after dbt transformations run <br>
-![Screenshot of postgres after dbt transformation](./postgres_after_dbt.png)
+![Screenshot of postgres after dbt transformation](./Screenshots/postgres_after_dbt.png)
 
 5 - Screenshot running airflow first time <br>
-![running airflow](<./running_airflow_first _time.png>)
+![running airflow](<./Screenshots/running_airflow_first _time.png>)
 
 6 - Screenshot of running docker command to start airflow `docker compose up init-airflow -d`<br>
-![docker command to run airlofw](docker_command_to_run_airflow.png)
+![docker command to run airlofw](./Screenshots/docker_command_to_run_airflow.png)
 
 7- Screenshot of successful dag run within airflow <br>
-![successful dag run](./sucessful_dag_run.png)
+![successful dag run](./Screenshots/sucessful_dag_run.png)
 
 8 - Screenshot of successful table creation using airflow <br>
-![airflow tables](airflow_tables.png)
+![airflow tables](.//Screenshots/airflow_tables.png)
 
 ## Limitations of this exercise
 - This exercise is very basic. Most real life jobs will not require moving data from one folder to another on-prem.
