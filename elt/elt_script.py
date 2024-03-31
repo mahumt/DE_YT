@@ -27,7 +27,7 @@ def wait_for_postgres(host, max_retries=5, delay_seconds=5):
 if not wait_for_postgres(host="source_postgres"):
     exit(1)
 
-print("Starting ELT script...")
+print("START: Starting ELT script...")
 
 # Configuration for the source PostgreSQL database using dump files
 
@@ -50,16 +50,17 @@ destination_config = {
 
 # Use pg_dump to dump the source database to a SQL file
 dump_command = [
-    'pg_dump',
-    '-h', source_config['host'],
-    '-U', source_config['user'],
-    '-d', source_config['dbname'],
-    '-f', 
-    'data_dump.sql',
-    '-w'  # Do not prompt for password
+    'pg_dump',                      # this is the command in postgres to create the dump file
+    '-h', source_config['host'],    # host
+    '-U', source_config['user'],    # user
+    '-d', source_config['dbname'],  # database name
+    '-f', 'data_dump.sql',          # the file that is going to be for the dump "outfile"
+    # https://www.postgresql.org/docs/8.1/backup.html#BACKUP-DUMP-RESTORE
+    '-w'                            # Do not prompt for password
 ]
 
-# Set the PGPASSWORD environment variable to avoid password prompt
+
+# Set the PGPASSWORD environment variable to avoid password prompt (related to the 'w' in dump command)
 subprocess_env = dict(PGPASSWORD = source_config['password'])
 
 # Execute the dump command
@@ -72,14 +73,13 @@ load_command = [
     '-U', destination_config['user'],
     '-d', destination_config['dbname'],
     '-a', 
-    '-f', 
-    'data_dump.sql'
+    '-f', 'data_dump.sql'
 ]
 
 # Set the PGPASSWORD environment variable for the destination database
-subprocess_env = dict(PGPASSWORD=destination_config['password'])
+subprocess_env = dict(PGPASSWORD = destination_config['password'])
 
 # Execute the load command
 subprocess.run(load_command, env=subprocess_env, check=True)
 
-print("Ending ELT script...")
+print("DONE: Ending ELT script...")
