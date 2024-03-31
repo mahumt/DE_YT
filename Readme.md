@@ -10,7 +10,7 @@
 - [Source](#source)
 
 ## Introduction
-This exercise migrates data from one source folder and moves it across to a destination folder, using open source tools. The eercise makes use of docker to setup a container and run airflow, postgres and dbt for an automated data pipeline <br>
+This exercise migrates data from one source folder and moves it across to a destination folder, using open source tools. Making use of docker to setup a container and run airflow, postgres and dbt for an automated data pipeline <br>
 ![Architecture](Screenshots/architecture.drawio.png)
 
 <br>
